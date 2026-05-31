@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>דרור שף - ארוחות שף פרטיות בבית הלקוח</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background-color: #fdfbf7;
+      color: #1f2933;
+    }
+
+    a { text-decoration: none; }
+
+    .page { min-height: 100vh; }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      background-color: #1a0a00;
+      color: #fff;
+      padding-bottom: 6rem;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      opacity: 0.25;
+      background-image: url("https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 10;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1rem 0;
+    }
+
+    .logo-wrapper {
+      margin-bottom: 1.5rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .logo-circle {
+      background: #ffffff;
+      padding: 1rem;
+      border-radius: 999px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+      width: 160px;
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .logo-circle img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .hero-title {
+      font-size: 2.4rem;
+      font-weight: 800;
+      margin: 0 0 0.25rem;
+      color: #fffbeb;
+    }
+
+    @media (min-width: 768px) {
+      .hero-title { font-size: 3.2rem; }
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      font-weight: 300;
+      color: #fefce8;
+      margin: 0.4rem 0 0;
+    }
+
+    .hero-tagline {
+      font-size: 1rem;
+      color: #fcd34d;
+      font-weight: 500;
+      margin: 0.5rem 0 0;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      margin-top: 2rem;
+      background: #d97706;
+      padding: 0.5rem 1.5rem;
+      border-radius: 999px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.03); }
+    }
+
+    /* MAIN */
+    .main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem 4rem;
+      margin-top: -4rem;
+      position: relative;
+      z-index: 20;
+    }
+
+    /* USP CARDS */
+    .usp-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    @media (min-width: 768px) {
+      .usp-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .usp-card {
+      background: #ffffff;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 10px 25px rgba(15,23,42,0.08);
+      border-bottom: 4px solid #f59e0b;
+      text-align: center;
+    }
+
+    .usp-icon {
+      width: 40px;
+      height: 40px;
+      margin: 0 auto 0.75rem;
+      border-radius: 999px;
+      background: #fef3c7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      color: #b45309;
+    }
+
+    .usp-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .usp-text {
+      font-size: 0.85rem;
+      color: #6b7280;
+      margin: 0;
+    }
+
+    /* HOW IT WORKS */
+    .how-section {
+      margin-bottom: 3rem;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 800;
+      color: #78350f;
+      margin-bottom: 2rem;
+      text-decoration: underline;
+      text-decoration-color: #f59e0b;
+      text-underline-offset: 0.4rem;
+      text-decoration-thickness: 4px;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .steps-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .step-card {
+      background: #fff;
+      border-radius: 1.2rem;
+      padding: 1.8rem 1.4rem;
+      box-shadow: 0 8px 20px rgba(15,23,42,0.07);
+      text-align: center;
+      border-top: 4px solid #f59e0b;
+    }
+
+    .step-num {
+      width: 52px;
+      height: 52px;
+      background: #78350f;
+      color: #fbbf24;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 900;
+      margin: 0 auto 1rem;
+    }
+
+    .step-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #111827;
+      margin-bottom: 0.5rem;
+    }
+
+    .step-text {
+      font-size: 0.88rem;
+      color: #6b7280;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* MEAL CARDS */
+    .meals-grid {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 768px) {
+      .meals-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .meals-category {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.8rem 0 0.2rem;
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #78350f;
+    }
+
+    .meals-category::before {
+      content: '';
+      flex: 1;
+      height: 2px;
+      background: linear-gradient(to left, #f59e0b, transparent);
+    }
+
+    .meals-category::after {
+      content: '';
+      flex: 1;
+      height: 2px;
+      background: linear-gradient(to right, #f59e0b, transparent);
+    }
+
+    .meal-card {
+      background: linear-gradient(150deg, #1a0f07, #2e1a08);
+      border-radius: 1.4rem;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,200,80,0.08);
+      overflow: hidden;
+      border: 1px solid #4a2c12;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s ease;
+    }
+
+    .meal-card:hover { transform: translateY(-6px); }
+
+    .meal-image-wrapper {
+      position: relative;
+      height: 220px;
+      overflow: hidden;
+    }
+
+    .meal-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .meal-card:hover .meal-image { transform: scale(1.08); }
+
+    .meal-tag {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 0.3rem 0.9rem;
+      border-bottom-left-radius: 0.75rem;
+      font-weight: 700;
+      font-size: 0.85rem;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+      color: #fff;
+    }
+
+    .meal-tag.meat   { background: #b91c1c; }
+    .meal-tag.dairy  { background: #2563eb; }
+    .meal-tag.druze  { background: #16a34a; }
+    .meal-tag.carnivore { background: #7c3aed; }
+
+    .meal-body {
+      padding: 1.4rem 1.4rem 1rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .meal-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin: 0 0 0.3rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(245,158,11,0.25);
+      color: #fef3c7;
+    }
+
+    .meal-subtitle {
+      font-size: 0.85rem;
+      color: #c8a97e;
+      margin: 0 0 0.5rem;
+      font-style: italic;
+    }
+
+    .meal-note {
+      font-size: 0.76rem;
+      color: #fcd34d;
+      background: rgba(245,158,11,0.08);
+      border: 1px solid rgba(245,158,11,0.3);
+      border-radius: 0.5rem;
+      padding: 0.3rem 0.6rem;
+      margin-bottom: 0.7rem;
+      font-style: italic;
+    }
+
+    .meal-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1rem;
+      flex: 1;
+      font-size: 0.92rem;
+      color: #e8d5b8;
+    }
+
+    .meal-list li {
+      display: flex;
+      gap: 0.4rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .meal-dot { color: #f59e0b; margin-top: 0.1rem; }
+
+    .meal-footer {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 0.7rem;
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.8rem;
+    }
+
+    .badge-custom {
+      background: rgba(245,158,11,0.12);
+      color: #fcd34d;
+      padding: 0.2rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid rgba(245,158,11,0.4);
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+
+    .btn-whatsapp-small {
+      color: #4ade80;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-size: 0.85rem;
+    }
+
+    .btn-whatsapp-small span.icon { font-size: 1rem; }
+
+    /* TESTIMONIALS */
+    .testimonials-section { margin-top: 3rem; }
+
+    .testimonials-slider {
+      position: relative;
+      background: linear-gradient(135deg, #78350f, #92400e);
+      border-radius: 1.4rem;
+      padding: 2.5rem 2rem 1.8rem;
+      box-shadow: 0 18px 35px rgba(15,23,42,0.15);
+      min-height: 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .testimonial-slide {
+      display: none;
+      text-align: center;
+      max-width: 720px;
+      width: 100%;
+      animation: tFadeIn 0.6s ease;
+    }
+
+    .testimonial-slide.active { display: block; }
+
+    @keyframes tFadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .testimonial-quote-mark {
+      font-size: 5rem;
+      color: #fcd34d;
+      line-height: 0.6;
+      font-family: Georgia, serif;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .testimonial-text {
+      font-size: 1.12rem;
+      color: #fef3c7;
+      line-height: 1.75;
+      font-style: italic;
+      margin: 0 0 1rem;
+    }
+
+    .testimonial-stars {
+      color: #fcd34d;
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .testimonial-author {
+      font-weight: 700;
+      color: #fbbf24;
+      font-size: 1rem;
+      letter-spacing: 0.02em;
+    }
+
+    .testimonial-dots {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .t-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.3);
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: background 0.3s ease, width 0.3s ease;
+    }
+
+    .t-dot.active {
+      background: #fbbf24;
+      width: 28px;
+    }
+
+    /* INCLUDED SECTION */
+    .general-section {
+      margin-top: 3rem;
+      background: #fef3c7;
+      border-radius: 1.4rem;
+      padding: 2rem 1.4rem;
+      border: 1px solid #fcd34d;
+    }
+
+    .general-title {
+      text-align: center;
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #78350f;
+      margin: 0 0 1.5rem;
+    }
+
+    .general-row {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    @media (min-width: 768px) {
+      .general-row { flex-direction: row; }
+    }
+
+    .general-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 1.05rem;
+      font-weight: 500;
+    }
+
+    .general-check {
+      background: #22c55e;
+      color: #fff;
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+
+    .general-bottom {
+      margin-top: 1.5rem;
+      text-align: center;
+      font-weight: 700;
+      color: #92400e;
+      font-size: 1.05rem;
+    }
+
+    /* FOOTER */
+    .footer {
+      background: #111827;
+      color: #e5e7eb;
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+
+    .footer-inner { max-width: 900px; margin: 0 auto; }
+
+    .footer-title {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #fbbf24;
+      margin-bottom: 2rem;
+    }
+
+    .footer-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      .footer-actions { flex-direction: row; }
+    }
+
+    .btn-phone, .btn-whatsapp-main {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.9rem 1.8rem;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 14px 30px rgba(0,0,0,0.35);
+    }
+
+    .btn-phone { background: #d97706; color: #fff; }
+    .btn-phone:hover { background: #b45309; }
+    .btn-whatsapp-main { background: #22c55e; color: #fff; }
+    .btn-whatsapp-main:hover { background: #16a34a; }
+
+    .footer-social {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      color: #9ca3af;
+      font-size: 0.95rem;
+    }
+
+    .footer-social a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      color: inherit;
+    }
+
+    .footer-social a:hover { color: #f97316; }
+
+    .footer-copy {
+      margin-top: 2rem;
+      font-size: 0.75rem;
+      color: #6b7280;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- HERO -->
+    <header class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-inner">
+
+        <div class="logo-wrapper">
+          <div class="logo-circle">
+            <img src="logo.png.png" alt="דרור שף לוגו" onerror="this.style.display='none'" />
+          </div>
+        </div>
+
+        <h1 class="hero-title">דרור שף</h1>
+        <p class="hero-subtitle">ארוחות שף פרטיות בבית הלקוח</p>
+        <p class="hero-tagline">השף מגיע אליכם — ומשאיר אתכם עם חיוך</p>
+
+        <div class="hero-badge">
+          🍽️ בופה לתפארת — מתוכנן במיוחד עבורכם
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+
+      <!-- USP CARDS -->
+      <section class="usp-grid">
+        <div class="usp-card">
+          <div class="usp-icon">📋</div>
+          <h3 class="usp-title">תפריט אישי לכל אירוע</h3>
+          <p class="usp-text">בונים יחד תפריט מותאם לטעמים, להעדפות ולסגנון שלכם</p>
+        </div>
+        <div class="usp-card">
+          <div class="usp-icon">👨‍🍳</div>
+          <h3 class="usp-title">שף + טבח עד הבית</h3>
+          <p class="usp-text">דרור מגיע עם טבח, מכין הכל במטבח שלכם ומשאיר אותו נקי</p>
+        </div>
+        <div class="usp-card">
+          <div class="usp-icon">✨</div>
+          <h3 class="usp-title">בופה מרשים ומוגש בסטייל</h3>
+          <p class="usp-text">עריכה מושקעת, הגשה מקצועית — כמו מסעדה פרטית בביתכם</p>
+        </div>
+      </section>
+
+      <!-- HOW IT WORKS -->
+      <section class="how-section">
+        <h2 class="section-title">איך זה עובד?</h2>
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-num">1</div>
+            <div class="step-title">יוצרים קשר ובוחרים תפריט</div>
+            <p class="step-text">מתייעצים, מתאימים את הסגנון והמנות בדיוק לאירוע שלכם</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">2</div>
+            <div class="step-title">השף מגיע ומבשל אצלכם</div>
+            <p class="step-text">דרור עם טבח מגיעים לביתכם, מכינים הכל טרי במטבח שלכם</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">3</div>
+            <div class="step-title">אוכלים ונהנים</div>
+            <p class="step-text">בופה עשיר, מוגש בסטייל — ואתם נהנים מכל רגע ללא עבודה</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- MEAL TYPES -->
+      <h2 class="section-title">סוגי הארוחות</h2>
+      <section class="meals-grid">
+
+        <!-- ===== חלבי ===== -->
+        <div class="meals-category">🧀 ארוחות חלביות — 279 ₪ לאדם</div>
+
+        <!-- איטלקי חלבי -->
+        <article class="meal-card">
+          <div class="meal-image-wrapper">
+            <img class="meal-image"
+                 src="https://images.unsplash.com/photo-1498579150354-977475b7ea0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                 alt="ארוחה איטלקית חלבית"
+                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1505576391880-b3f9d713dc4f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80';" />
+            <div class="meal-tag dairy">🧀 חלבי</div>
+          </div>
+          <div class="meal-body">
+            <h3 class="meal-title">איטלקי חלבי</h3>
+            <p class="meal-subtitle">ניחוח איטלי אמיתי עם גבינות מובחרות ופסטה טרייה</p>
+            <p class="meal-note">✎ תפריט לדוגמא בלבד — בהתייעצות עם השף ניתן לבנות תפריט מותאם אישית</p>
+            <ul class="meal-list">
+              <li><span class="meal-dot">•</span><span>כדורי ארנצ'יני ומוצרלה פרש</span></li>
+              <li><span class="meal-dot">•</span><span>סלט קפרזה עם ברוסקטות</span></li>
+              <li><span class="meal-dot">•</span><span>ניוקי בחמאה, עגבניות ובזיליקום</span></li>
+              <li><span class="meal-dot">•</span><span>רביולי פסטו</span></li>
+              <li><span class="meal-dot">•</span><span>פיצה בטאבון עם תוספות מגוונות</span></li>
+              <li><span class="meal-dot">•</span><span>טירמיסו קלאסי</span></li>
+            </ul>
+            <div class="meal-footer">
+              <span class="badge-custom">279 ₪ לאדם | מינ׳ 12 איש</span>
+              <a class="btn-whatsapp-small"
+                 href="https://wa.me/972504697257?text=אשמח לפרטים על ארוחת איטלקי חלבי"
+                 target="_blank" rel="noreferrer">
+                <span>הזמן עכשיו</span><span class="icon">↩︎</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- יוונית חלבית -->
+        <article class="meal-card">
+          <div class="meal-image-wrapper">
+            <img class="meal-image"
+                 src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                 alt="ארוחה יוונית חלבית"
+                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1505576391880-b3f9d713dc4f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80';" />
+            <div class="meal-tag dairy">🧀 חלבי</div>
+          </div>
+          <div class="meal-body">
+            <h3 class="meal-title">יוונית חלבית</h3>
+            <p class="meal-subtitle">טברנה יוונית קלאסית — גבינות, ים וטעמים עתיקים</p>
+            <p class="meal-note">✎ תפריט לדוגמא בלבד — בהתייעצות עם השף ניתן לבנות תפריט מותאם אישית</p>
+            <ul class="meal-list">
+              <li><span class="meal-dot">•</span><span>ממרחי סקורדיליה ופווה עם פיתה</span></li>
+              <li><span class="meal-dot">•</span><span>ספנקופיטה — מאפה פילו גבינות ותרד</span></li>
+              <li><span class="meal-dot">•</span><span>סלט יווני קלאסי עם גבינת פטה</span></li>
+              <li><span class="meal-dot">•</span><span>עלי גפן ממולאים ברוטב לימון</span></li>
+              <li><span class="meal-dot">•</span><span>מוסקה ירקות וגבינה</span></li>
+              <li><span class="meal-dot">•</span><span>לוקומאדס בדבש ואגוזים</span></li>
+            </ul>
+            <div class="meal-footer">
+              <span class="badge-custom">279 ₪ לאדם | מינ׳ 12 איש</span>
+              <a class="btn-whatsapp-small"
+                 href="https://wa.me/972504697257?text=אשמח לפרטים על ארוחה יוונית חלבית"
+                 target="_blank" rel="noreferrer">
+                <span>הזמן עכשיו</span><span class="icon">↩︎</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ===== בשרי ===== -->
+        <div class="meals-category">🥩 ארוחות בשריות — 349 ₪ לאדם</div>
+
+        <!-- איטלקי בשרי -->
+        <article class="meal-card">
+          <div class="meal-image-wrapper">
+            <img class="meal-image"
+                 src="https://images.unsplash.com/photo-1574894709920-11b28e7367e3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                 alt="ארוחה איטלקית בשרית"
+                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1505576391880-b3f9d713dc4f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80';" />
+            <div class="meal-tag meat">🥩 בשרי</div>
+          </div>
+          <div class="meal-body">
+            <h3 class="meal-title">איטלקי בשרי</h3>
+            <p class="meal-subtitle">קלאסיקות מהמטבח האיטלקי — גרסה בשרית מלאת אופי</p>
+            <p class="meal-note">✎ תפריט לדוגמא בלבד — בהתייעצות עם השף ניתן לבנות תפריט מותאם אישית</p>
+            <ul class="meal-list">
+              <li><span class="meal-dot">•</span><span>ארנצ'יני אווז על קרם פלפלים</span></li>
+              <li><span class="meal-dot">•</span><span>קרפצ'יו בקר עם צלפות ובזיליקום</span></li>
+              <li><span class="meal-dot">•</span><span>טאליאטלה רגו בשר</span></li>
+              <li><span class="meal-dot">•</span><span>לזנייה בשר וחצילים ברוטב בשמל (פרווה)</span></li>
+              <li><span class="meal-dot">•</span><span>אנטי פסטי עשיר</span></li>
+              <li><span class="meal-dot">•</span><span>סופלה שוקולד מריר</span></li>
+            </ul>
+            <div class="meal-footer">
+              <span class="badge-custom">349 ₪ לאדם | מינ׳ 12 איש</span>
+              <a class="btn-whatsapp-small"
+                 href="https://wa.me/972504697257?text=אשמח לפרטים על ארוחת איטלקי בשרי"
+                 target="_blank" rel="noreferrer">
+                <span>הזמן עכשיו</span><span class="icon">↩︎</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- דרוזי -->
+        <article class="meal-card">
+          <div class="meal-image-wrapper">
+            <img class="meal-image"
+                 src="https://images.unsplash.com/photo-1541518763669-27fef04b14ea?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                 alt="ארוחה דרוזית"
+                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1505576391880-b3f9d713dc4f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80';" />
+            <div class="meal-tag druze">🫓 דרוזי</div>
+          </div>
+          <div class="meal-body">
+            <h3 class="meal-title">דרוזי</h3>
+            <p class="meal-subtitle">טעמי הכפר הדרוזי — בישול אמהות, מסורת ואהבה</p>
+            <p class="meal-note">✎ תפריט לדוגמא בלבד — בהתייעצות עם השף ניתן לבנות תפריט מותאם אישית</p>
+            <ul class="meal-list">
+              <li><span class="meal-dot">•</span><span>פיתות טאבון טריות עם זעתר ושמן</span></li>
+              <li><span class="meal-dot">•</span><span>חומוס ביתי עם שמן זית</span></li>
+              <li><span class="meal-dot">•</span><span>מוסקן עוף על בצל ופיתה</span></li>
+              <li><span class="meal-dot">•</span><span>עלי גפן ממולאים בבשר ואורז</span></li>
+              <li><span class="meal-dot">•</span><span>מג'דרה עם קרוב-קרוב</span></li>
+              <li><span class="meal-dot">•</span><span>בקלאווה פיצוחים</span></li>
+            </ul>
+            <div class="meal-footer">
+              <span class="badge-custom">349 ₪ לאדם | מינ׳ 12 איש</span>
+              <a class="btn-whatsapp-small"
+                 href="https://wa.me/972504697257?text=אשמח לפרטים על ארוחה דרוזית"
+                 target="_blank" rel="noreferrer">
+                <span>הזמן עכשיו</span><span class="icon">↩︎</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- חגיגת בשרים -->
+        <article class="meal-card">
+          <div class="meal-image-wrapper">
+            <img class="meal-image"
+                 src="https://images.unsplash.com/photo-1600891964092-4316c288032e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                 alt="חגיגת בשרים"
+                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1505576391880-b3f9d713dc4f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80';" />
+            <div class="meal-tag carnivore">🔥 בשרי</div>
+          </div>
+          <div class="meal-body">
+            <h3 class="meal-title">חגיגת בשרים לקרניבורים</h3>
+            <p class="meal-subtitle">לאוהבי הבשר האמיתיים — חגיגה של בקר מובחר</p>
+            <p class="meal-note">✎ תפריט לדוגמא בלבד — בהתייעצות עם השף ניתן לבנות תפריט מותאם אישית</p>
+            <ul class="meal-list">
+              <li><span class="meal-dot">•</span><span>קרפצ'יו אנטריקוט עם שמן כמהין</span></li>
+              <li><span class="meal-dot">•</span><span>עראיס בשר טלה על הגריל</span></li>
+              <li><span class="meal-dot">•</span><span>אסאדו מעושן בציר עמוק</span></li>
+              <li><span class="meal-dot">•</span><span>בריסקט פרוס עם ממרח שאלוט</span></li>
+              <li><span class="meal-dot">•</span><span>המבורגר אומגת שף</span></li>
+              <li><span class="meal-dot">•</span><span>סופלה שוקולד מריר</span></li>
+            </ul>
+            <div class="meal-footer">
+              <span class="badge-custom">349 ₪ לאדם | מינ׳ 12 איש</span>
+              <a class="btn-whatsapp-small"
+                 href="https://wa.me/972504697257?text=אשמח לפרטים על חגיגת בשרים לקרניבורים"
+                 target="_blank" rel="noreferrer">
+                <span>הזמן עכשיו</span><span class="icon">↩︎</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- אסייתית בשרית -->
+        <article class="meal-card">
+          <div class="meal-image-wrapper">
+            <img class="meal-image"
+                 src="https://images.unsplash.com/photo-1563245372-f21724e3856d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                 alt="ארוחה אסייתית בשרית"
+                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1505576391880-b3f9d713dc4f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80';" />
+            <div class="meal-tag meat">🥢 בשרי</div>
+          </div>
+          <div class="meal-body">
+            <h3 class="meal-title">אסייתית בשרית</h3>
+            <p class="meal-subtitle">מסע קולינרי למזרח — טעמים נועזים, ניחוחות עמוקים</p>
+            <p class="meal-note">✎ תפריט לדוגמא בלבד — בהתייעצות עם השף ניתן לבנות תפריט מותאם אישית</p>
+            <ul class="meal-list">
+              <li><span class="meal-dot">•</span><span>ספרינג רול בשר עם רוטב צ'ילי מתוק</span></li>
+              <li><span class="meal-dot">•</span><span>לחמניות באו עם ברווז מסוקלק</span></li>
+              <li><span class="meal-dot">•</span><span>פאד תאי עוף</span></li>
+              <li><span class="meal-dot">•</span><span>ריבס מתוקים-חמוצים על אורז מוקפץ</span></li>
+              <li><span class="meal-dot">•</span><span>בשר בקר ברוטב טריאקי</span></li>
+              <li><span class="meal-dot">•</span><span>מנגו סטיקי רייס</span></li>
+            </ul>
+            <div class="meal-footer">
+              <span class="badge-custom">349 ₪ לאדם | מינ׳ 12 איש</span>
+              <a class="btn-whatsapp-small"
+                 href="https://wa.me/972504697257?text=אשמח לפרטים על ארוחה אסייתית בשרית"
+                 target="_blank" rel="noreferrer">
+                <span>הזמן עכשיו</span><span class="icon">↩︎</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ===== גורמה ===== -->
+        <div class="meals-category">⭐ ארוחת גורמה בשרית — 397 ₪ לאדם</div>
+
+        <!-- גורמה בשרית -->
+        <article class="meal-card">
+          <div class="meal-image-wrapper">
+            <img class="meal-image"
+                 src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                 alt="ארוחת גורמה בשרית"
+                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1505576391880-b3f9d713dc4f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80';" />
+            <div class="meal-tag carnivore">⭐ גורמה</div>
+          </div>
+          <div class="meal-body">
+            <h3 class="meal-title">ארוחת גורמה בשרית</h3>
+            <p class="meal-subtitle">חוויית מסעדת שף בביתכם — מנות יוקרה ועיבוד קולינרי גבוה</p>
+            <p class="meal-note">✎ תפריט לדוגמא בלבד — בהתייעצות עם השף ניתן לבנות תפריט מותאם אישית</p>
+            <ul class="meal-list">
+              <li><span class="meal-dot">•</span><span>פואה גרה על בריוש עם ריבת תאנים</span></li>
+              <li><span class="meal-dot">•</span><span>טרטר בקר עם חלמון ושמן כמהין</span></li>
+              <li><span class="meal-dot">•</span><span>פילה מיניון ברוטב פטריות ויין אדום</span></li>
+              <li><span class="meal-dot">•</span><span>ריזוטו כמהין שחורה (פרווה)</span></li>
+              <li><span class="meal-dot">•</span><span>אנטי פסטי גורמה עם זיתים ועלי רוקט</span></li>
+              <li><span class="meal-dot">•</span><span>מוס שוקולד 70% עם פירות יער</span></li>
+            </ul>
+            <div class="meal-footer">
+              <span class="badge-custom">397 ₪ לאדם | מינ׳ 12 איש</span>
+              <a class="btn-whatsapp-small"
+                 href="https://wa.me/972504697257?text=אשמח לפרטים על ארוחת גורמה בשרית"
+                 target="_blank" rel="noreferrer">
+                <span>הזמן עכשיו</span><span class="icon">↩︎</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </section>
+
+      <!-- TESTIMONIALS -->
+      <section class="testimonials-section">
+        <h2 class="section-title">מה אומרים עלינו</h2>
+        <div class="testimonials-slider">
+
+          <div class="testimonial-slide active">
+            <span class="testimonial-quote-mark">"</span>
+            <p class="testimonial-text">דרור הגיע לבית שלנו ופשוט קסם לכולם. הבופה היה מרהיב, האוכל היה מדהים, והמטבח נשאר נקי. כבר הזמנו פעם שנייה!</p>
+            <div class="testimonial-stars">★★★★★</div>
+            <div class="testimonial-author">— משפחת כהן, ראשון לציון</div>
+          </div>
+
+          <div class="testimonial-slide">
+            <span class="testimonial-quote-mark">"</span>
+            <p class="testimonial-text">ארגנו ארוחת חברה לצוות שלנו — 20 איש — ודרור עשה עבודה מושלמת. תפריט אישי, שירות מעולה, ואיכות מסעדה ממש בחדר הישיבות.</p>
+            <div class="testimonial-stars">★★★★★</div>
+            <div class="testimonial-author">— ניר, מנהל חברה</div>
+          </div>
+
+          <div class="testimonial-slide">
+            <span class="testimonial-quote-mark">"</span>
+            <p class="testimonial-text">הזמנו ארוחה דרוזית לאירוע משפחתי — כולם היו בהלם מהטעמים. אמי טענה שזה כמו שבישלה סבתא שלה! מומלץ בחום.</p>
+            <div class="testimonial-stars">★★★★★</div>
+            <div class="testimonial-author">— סמר, חיפה</div>
+          </div>
+
+          <div class="testimonial-dots">
+            <button class="t-dot active" onclick="goToSlide(0)"></button>
+            <button class="t-dot" onclick="goToSlide(1)"></button>
+            <button class="t-dot" onclick="goToSlide(2)"></button>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- WHAT'S INCLUDED -->
+      <section class="general-section">
+        <h3 class="general-title">בכל ארוחה מקבלים:</h3>
+        <div class="general-row">
+          <div class="general-item">
+            <div class="general-check">✓</div>
+            <span>תפריט אישי מותאם לכם</span>
+          </div>
+          <div class="general-item">
+            <div class="general-check">✓</div>
+            <span>שף + טבח עד הבית</span>
+          </div>
+          <div class="general-item">
+            <div class="general-check">✓</div>
+            <span>עריכת בופה מרשימה</span>
+          </div>
+          <div class="general-item">
+            <div class="general-check">✓</div>
+            <span>מטבח נקי בסיום</span>
+          </div>
+        </div>
+        <div class="general-bottom">
+          🍷 ניתן להוסיף יין, שתייה ופתיחה מפנקת — לפי בקשה
+        </div>
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <h2 class="footer-title">לפרטים והזמנות</h2>
+
+        <div class="footer-actions">
+          <a class="btn-phone" href="tel:0504697257">
+            <span>📞</span><span dir="ltr">050‑469‑7257</span>
+          </a>
+          <a class="btn-whatsapp-main"
+             href="https://wa.me/972504697257"
+             target="_blank" rel="noreferrer">
+            <span>💬</span><span>שלח הודעה בוואטסאפ</span>
+          </a>
+        </div>
+
+        <div class="footer-social">
+          <a href="https://instagram.com/drorkay" target="_blank" rel="noreferrer">
+            <span>📷</span><span>@drorkay</span>
+          </a>
+          <a href="#" target="_blank" rel="noreferrer">
+            <span>📘</span><span>דרור שף</span>
+          </a>
+        </div>
+
+        <p class="footer-copy">© כל הזכויות שמורות לדרור שף</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.testimonial-slide');
+    const dots   = document.querySelectorAll('.t-dot');
+
+    function goToSlide(n) {
+      slides[currentSlide].classList.remove('active');
+      dots[currentSlide].classList.remove('active');
+      currentSlide = n;
+      slides[currentSlide].classList.add('active');
+      dots[currentSlide].classList.add('active');
+    }
+
+    setInterval(() => {
+      goToSlide((currentSlide + 1) % slides.length);
+    }, 4500);
+  </script>
+</body>
+</html>

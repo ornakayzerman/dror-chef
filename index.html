@@ -1,0 +1,977 @@
+﻿<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>דרור שף - סדנאות בישול וארוחות שף</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background-color: #fdfbf7;
+      color: #1f2933;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .page {
+      min-height: 100vh;
+    }
+
+    .hero {
+      position: relative;
+      background-color: #78350f;
+      color: #fff;
+      padding-bottom: 6rem;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      opacity: 0.2;
+      background-image: url("https://images.unsplash.com/photo-1556910103-1c02745a30bf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 10;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1rem 0;
+    }
+
+    .logo-wrapper {
+      margin-bottom: 1.5rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .logo-circle {
+      background: #ffffff;
+      padding: 1rem;
+      border-radius: 999px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      width: 160px;
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .logo-circle img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .hero-title {
+      font-size: 2.4rem;
+      font-weight: 800;
+      margin: 0 0 0.25rem;
+      color: #fffbeb;
+    }
+
+    @media (min-width: 768px) {
+      .hero-title {
+        font-size: 3.2rem;
+      }
+    }
+
+    .hero-subtitle {
+      font-size: 1.2rem;
+      font-weight: 300;
+      color: #fefce8;
+      margin: 0;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      margin-top: 2rem;
+      background: #d97706;
+      padding: 0.5rem 1.5rem;
+      border-radius: 999px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.03); }
+    }
+
+    .main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem 4rem;
+      margin-top: -4rem;
+      position: relative;
+      z-index: 20;
+    }
+
+    .usp-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    @media (min-width: 768px) {
+      .usp-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .usp-card {
+      background: #ffffff;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 10px 25px rgba(15,23,42,0.08);
+      border-bottom: 4px solid #f59e0b;
+      text-align: center;
+    }
+
+    .usp-icon {
+      width: 40px;
+      height: 40px;
+      margin: 0 auto 0.75rem;
+      border-radius: 999px;
+      background: #fef3c7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      color: #b45309;
+    }
+
+    .usp-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .usp-text {
+      font-size: 0.85rem;
+      color: #6b7280;
+      margin: 0;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 800;
+      color: #78350f;
+      margin-bottom: 2rem;
+      text-decoration: underline;
+      text-decoration-color: #f59e0b;
+      text-underline-offset: 0.4rem;
+      text-decoration-thickness: 4px;
+    }
+
+    .workshops-grid {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 768px) {
+      .workshops-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .workshops-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .workshop-card {
+      background: #ffffff;
+      border-radius: 1.4rem;
+      box-shadow: 0 18px 35px rgba(15,23,42,0.12);
+      overflow: hidden;
+      border: 1px solid #e5e7eb;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s ease;
+    }
+
+    .workshop-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .workshop-image-wrapper {
+      position: relative;
+      height: 190px;
+      overflow: hidden;
+    }
+
+    .workshop-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .workshop-card:hover .workshop-image {
+      transform: scale(1.08);
+    }
+
+    .price-badge {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: #d97706;
+      color: #fff;
+      padding: 0.3rem 0.9rem;
+      border-bottom-left-radius: 0.75rem;
+      font-weight: 700;
+      font-size: 0.9rem;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+    }
+
+    .workshop-body {
+      padding: 1.4rem 1.4rem 1rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .workshop-title {
+      font-size: 1.4rem;
+      font-weight: 800;
+      margin: 0 0 0.8rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid #fef3c7;
+      color: #111827;
+    }
+
+    .workshop-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1rem;
+      flex: 1;
+      font-size: 0.9rem;
+      color: #374151;
+    }
+
+    .workshop-list li {
+      display: flex;
+      gap: 0.4rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .workshop-dot {
+      color: #f59e0b;
+      margin-top: 0.1rem;
+    }
+
+    .workshop-note {
+      background: #fffbeb;
+      border: 1px solid #fcd34d;
+      color: #92400e;
+      border-radius: 0.6rem;
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.6rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .workshop-footer {
+      border-top: 1px solid #f3f4f6;
+      padding-top: 0.7rem;
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: #6b7280;
+    }
+
+    .badge-min {
+      background: #fffbeb;
+      color: #92400e;
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid #fcd34d;
+      font-weight: 600;
+    }
+
+    .btn-whatsapp-small {
+      color: #16a34a;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-size: 0.85rem;
+    }
+
+    .btn-whatsapp-small span.icon {
+      font-size: 1rem;
+    }
+
+    .general-section {
+      margin-top: 3rem;
+      background: #fef3c7;
+      border-radius: 1.4rem;
+      padding: 2rem 1.4rem;
+      border: 1px solid #fcd34d;
+    }
+
+    .general-title {
+      text-align: center;
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #78350f;
+      margin: 0 0 1.5rem;
+    }
+
+    .general-row {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @media (min-width: 768px) {
+      .general-row {
+        flex-direction: row;
+      }
+    }
+
+    .general-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 1.05rem;
+      font-weight: 500;
+    }
+
+    .general-check {
+      background: #22c55e;
+      color: #fff;
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+    }
+
+    .general-bottom {
+      margin-top: 1.5rem;
+      text-align: center;
+      font-weight: 700;
+      color: #92400e;
+      font-size: 1.05rem;
+    }
+
+    .footer {
+      background: #111827;
+      color: #e5e7eb;
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+
+    .footer-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .footer-title {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #fbbf24;
+      margin-bottom: 2rem;
+    }
+
+    .footer-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      .footer-actions {
+        flex-direction: row;
+      }
+    }
+
+    .btn-phone, .btn-whatsapp-main {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.9rem 1.8rem;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 14px 30px rgba(0,0,0,0.35);
+    }
+
+    .btn-phone {
+      background: #d97706;
+      color: #fff;
+    }
+
+    .btn-phone:hover {
+      background: #b45309;
+    }
+
+    .btn-whatsapp-main {
+      background: #22c55e;
+      color: #fff;
+    }
+
+    .btn-whatsapp-main:hover {
+      background: #16a34a;
+    }
+
+    .footer-social {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      color: #9ca3af;
+      font-size: 0.95rem;
+    }
+
+    .footer-social a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      color: inherit;
+    }
+
+    .footer-social a:hover {
+      color: #f97316;
+    }
+
+    .footer-copy {
+      margin-top: 2rem;
+      font-size: 0.75rem;
+      color: #6b7280;
+    }
+
+    /* TESTIMONIALS */
+    .testimonials-section {
+      margin-top: 3rem;
+    }
+
+    .testimonials-slider {
+      position: relative;
+      background: linear-gradient(135deg, #78350f, #92400e);
+      border-radius: 1.4rem;
+      padding: 2.5rem 2rem 1.8rem;
+      box-shadow: 0 18px 35px rgba(15,23,42,0.15);
+      min-height: 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .testimonial-slide {
+      display: none;
+      text-align: center;
+      max-width: 720px;
+      width: 100%;
+      animation: tFadeIn 0.6s ease;
+    }
+
+    .testimonial-slide.active {
+      display: block;
+    }
+
+    @keyframes tFadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .testimonial-quote-mark {
+      font-size: 5rem;
+      color: #fcd34d;
+      line-height: 0.6;
+      font-family: Georgia, serif;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .testimonial-text {
+      font-size: 1.12rem;
+      color: #fef3c7;
+      line-height: 1.75;
+      font-style: italic;
+      margin: 0 0 1rem;
+    }
+
+    .testimonial-stars {
+      color: #fcd34d;
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .testimonial-author {
+      font-weight: 700;
+      color: #fbbf24;
+      font-size: 1rem;
+      letter-spacing: 0.02em;
+    }
+
+    .testimonial-dots {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .t-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.3);
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: background 0.3s ease, width 0.3s ease;
+    }
+
+    .t-dot.active {
+      background: #fbbf24;
+      width: 26px;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- HERO -->
+    <header class="hero">
+      <div class="hero-bg"></div>
+
+      <div class="hero-inner">
+        <div class="logo-wrapper">
+          <div class="logo-circle">
+            <img src="data:image/png;base64,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AQAwAIEOAIABCHQAAAxAoAMAYAACHQAAAxDoAAAYgEAHAMAABDoAAAYg0AEAMACBDgCAAQh0AAAMQKADAGAAAh0AAAMQ6AAAGIBABwDAAAQ6AAAGINABADAAgQ4AgAEIdAAADECgAwBgAAIdAAADEOgAABiAQAcAwAAEOgAABiDQAQAwAIEOAIABCHQAAAxAoAMAYAACHQAAAxDoAAAYgEAHAMAABDoAAAYg0AEAMACBDgCAAQh0AAAMQKADAGAAAh0AAAMQ6AAAGIBABwDAAAQ6AAAGINABADAAgQ4AgAEIdAAADECgAwBgAAIdAAADEOgAABiAQAcAwAAEOgAABiDQAQAwAIEOAIABCHQAAAxAoAMAYAACHQAAAxDoAAAYgEAHAMAABDoAAAYg0AEAMACBDgCAAQh0AAAMQKADAGAAAh0AAAMQ6AAAGIBABwDAAAQ6AAAGINABADAAgQ4AgAEIdAAADECgAwBgAAIdAAADEOgAABiAQAcAwAAEOgAABiDQAQAwAIEOAIABCHQAAAxAoAMAYAACHQAAAxDoAAAYgEAHAMAABDoAAAYg0AEAMACBDgCAAQh0AAAMQKADAGAAAh0AAAMQ6AAAGIBABwDAAP8P0r/Q1k5Z1oQAAAAASUVORK5CYII="
+                 alt="דרור שף לוגו" />
+          </div>
+        </div>
+
+        <h1 class="hero-title">דרור שף</h1>
+        <p class="hero-subtitle">סדנאות בישול וארוחות שף בבית הלקוח</p>
+
+        <div class="hero-badge">
+          אורך כל סדנה כ‑3 שעות
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main class="main">
+
+      <!-- USP CARDS -->
+      <section class="usp-grid">
+        <div class="usp-card">
+          <div class="usp-icon">👨‍🍳</div>
+          <h3 class="usp-title">שף עד הבית</h3>
+          <p class="usp-text">השף מגיע עם כל הציוד והפרודוקטים</p>
+        </div>
+        <div class="usp-card">
+          <div class="usp-icon">🍷</div>
+          <h3 class="usp-title">הכל כלול</h3>
+          <p class="usp-text">יין, פוקאצ'ות ומטבלים בכל סדנה</p>
+        </div>
+        <div class="usp-card">
+          <div class="usp-icon">✨</div>
+          <h3 class="usp-title">משאירים נקי</h3>
+          <p class="usp-text">משאירים מטבח נקי בסוף האירוע</p>
+        </div>
+      </section>
+
+      <h2 class="section-title">הסדנאות שלנו</h2>
+
+      <!-- WORKSHOPS -->
+      <section class="workshops-grid">
+
+        <!-- סדנה גלילית -->
+        <article class="workshop-card">
+          <div class="workshop-image-wrapper">
+            <img class="workshop-image"
+                 src="https://images.unsplash.com/photo-1541518763669-27fef04b14ea?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                 alt="סדנה גלילית"
+                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1505576391880-b3f9d713dc4f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80';" />
+            <div class="price-badge">329 ₪ לאדם</div>
+          </div>
+          <div class="workshop-body">
+            <h3 class="workshop-title">סדנה גלילית</h3>
+            <ul class="workshop-list">
+              <li><span class="workshop-dot">•</span><span>מטעמי המטבח הערבי</span></li>
+              <li><span class="workshop-dot">•</span><span>עלי גפן ממולאים</span></li>
+              <li><span class="workshop-dot">•</span><span>פאטייר</span></li>
+              <li><span class="workshop-dot">•</span><span>מקלובה</span></li>
+              <li><span class="workshop-dot">•</span><span>סיגר בשר</span></li>
+              <li><span class="workshop-dot">•</span><span>בקלאווה</span></li>
+            </ul>
+            <div class="workshop-footer">
+              <span class="badge-min">מינימום 8 אנשים</span>
+              <a class="btn-whatsapp-small"
+                 href="https://wa.me/972504697257?text=אשמח לפרטים על סדנה גלילית"
+                 target="_blank"
+                 rel="noreferrer">
+                <span>הזמן עכשיו</span><span class="icon">↩︎</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- סדנה אסייתית -->
+        <article class="workshop-card">
+          <div class="workshop-image-wrapper">
+            <img class="workshop-image"
+                 src="https://images.unsplash.com/photo-1563245372-f21724e3856d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                 alt="סדנה אסייתית"
+                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1505576391880-b3f9d713dc4f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80';" />
+            <div class="price-badge">289 ₪ לאדם</div>
+          </div>
+          <div class="workshop-body">
+            <h3 class="workshop-title">סדנה אסייתית</h3>
+            <ul class="workshop-list">
+              <li><span class="workshop-dot">•</span><span>מנות קלאסיות מהמזרח</span></li>
+              <li><span class="workshop-dot">•</span><span>פאני פורי במילוי אבוקדו</span></li>
+              <li><span class="workshop-dot">•</span><span>לחמניות באו במילוי פילה דג</span></li>
+              <li><span class="workshop-dot">•</span><span>ספרינג רול</span></li>
+              <li><span class="workshop-dot">•</span><span>פאד תאי עוף</span></li>
+              <li><span class="workshop-dot">•</span><span>בננה לוטי</span></li>
+            </ul>
+            <div class="workshop-footer">
+              <span class="badge-min">מינימום 8 אנשים</span>
+              <a class="btn-whatsapp-small"
+                 href="https://wa.me/972504697257?text=אשמח לפרטים על סדנה אסייתית"
+                 target="_blank"
+                 rel="noreferrer">
+                <span>הזמן עכשיו</span><span class="icon">↩︎</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- סדנת שוק -->
+        <article class="workshop-card">
+          <div class="workshop-image-wrapper">
+            <img class="workshop-image"
+                 src="https://images.unsplash.com/photo-1561758033-d89a9ad46330?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                 alt="סדנת שוק"
+                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1505576391880-b3f9d713dc4f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80';" />
+            <div class="price-badge">359 ₪ לאדם</div>
+          </div>
+          <div class="workshop-body">
+            <h3 class="workshop-title">סדנת שוק</h3>
+            <ul class="workshop-list">
+              <li><span class="workshop-dot">•</span><span>מנות שמוצאים בשווקים</span></li>
+              <li><span class="workshop-dot">•</span><span>שווארמה</span></li>
+              <li><span class="workshop-dot">•</span><span>חצ'פורי מעורב ירושלמי</span></li>
+              <li><span class="workshop-dot">•</span><span>לחמניות בריסקט</span></li>
+              <li><span class="workshop-dot">•</span><span>עוף בטמפורה</span></li>
+              <li><span class="workshop-dot">•</span><span>מוס שוקולד</span></li>
+            </ul>
+            <div class="workshop-footer">
+              <span class="badge-min">מינימום 8 אנשים</span>
+              <a class="btn-whatsapp-small"
+                 href="https://wa.me/972504697257?text=אשמח לפרטים על סדנת שוק"
+                 target="_blank"
+                 rel="noreferrer">
+                <span>הזמן עכשיו</span><span class="icon">↩︎</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- סדנה מקסיקנית -->
+        <article class="workshop-card">
+          <div class="workshop-image-wrapper">
+            <img class="workshop-image"
+                 src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                 alt="סדנה מקסיקנית"
+                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1505576391880-b3f9d713dc4f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80';" />
+            <div class="price-badge">329 ₪ לאדם</div>
+          </div>
+          <div class="workshop-body">
+            <h3 class="workshop-title">סדנה מקסיקנית</h3>
+            <ul class="workshop-list">
+              <li><span class="workshop-dot">•</span><span>מנות מקסיקניות צבעוניות</span></li>
+              <li><span class="workshop-dot">•</span><span>פירחולס</span></li>
+              <li><span class="workshop-dot">•</span><span>גוואקאמולי</span></li>
+              <li><span class="workshop-dot">•</span><span>פיקודהגיו</span></li>
+              <li><span class="workshop-dot">•</span><span>צ'ילי קון קרנה</span></li>
+              <li><span class="workshop-dot">•</span><span>פרגיות ברוטב מולה</span></li>
+              <li><span class="workshop-dot">•</span><span>טורטייה שייטל ואיולי צ'יפוטלה</span></li>
+              <li><span class="workshop-dot">•</span><span>צ'ורוס</span></li>
+            </ul>
+            <div class="workshop-footer">
+              <span class="badge-min">מינימום 8 אנשים</span>
+              <a class="btn-whatsapp-small"
+                 href="https://wa.me/972504697257?text=אשמח לפרטים על סדנה מקסיקנית"
+                 target="_blank"
+                 rel="noreferrer">
+                <span>הזמן עכשיו</span><span class="icon">↩︎</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- סדנת בשר -->
+        <article class="workshop-card">
+          <div class="workshop-image-wrapper">
+            <img class="workshop-image"
+                 src="https://images.unsplash.com/photo-1600891964092-4316c288032e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                 alt="סדנת בשר"
+                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1505576391880-b3f9d713dc4f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80';" />
+            <div class="price-badge">359 ₪ לאדם</div>
+          </div>
+          <div class="workshop-body">
+            <h3 class="workshop-title">סדנת בשר</h3>
+            <ul class="workshop-list">
+              <li><span class="workshop-dot">•</span><span>מנות שחובבי בשר אוהבים</span></li>
+              <li><span class="workshop-dot">•</span><span>קרפצ'יו</span></li>
+              <li><span class="workshop-dot">•</span><span>עראיס</span></li>
+              <li><span class="workshop-dot">•</span><span>המבורגר אסאדו</span></li>
+              <li><span class="workshop-dot">•</span><span>רוסטביף סינטה</span></li>
+              <li><span class="workshop-dot">•</span><span>סופלה שוקולד</span></li>
+            </ul>
+            <div class="workshop-footer">
+              <span class="badge-min">מינימום 8 אנשים</span>
+              <a class="btn-whatsapp-small"
+                 href="https://wa.me/972504697257?text=אשמח לפרטים על סדנת בשר"
+                 target="_blank"
+                 rel="noreferrer">
+                <span>הזמן עכשיו</span><span class="icon">↩︎</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- איטלקית חלבית -->
+        <article class="workshop-card">
+          <div class="workshop-image-wrapper">
+            <img class="workshop-image"
+                 src="https://images.unsplash.com/photo-1498579150354-977475b7ea0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                 alt="איטלקית חלבית"
+                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1505576391880-b3f9d713dc4f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80';" />
+            <div class="price-badge">289 ₪ לאדם</div>
+          </div>
+          <div class="workshop-body">
+            <h3 class="workshop-title">איטלקית חלבית</h3>
+            <ul class="workshop-list">
+              <li><span class="workshop-dot">•</span><span>מנות איטלקיות קלאסיות</span></li>
+              <li><span class="workshop-dot">•</span><span>כדורי ארנצ'יני ומוצרלה</span></li>
+              <li><span class="workshop-dot">•</span><span>ניוקי בחמאת עגבניות</span></li>
+              <li><span class="workshop-dot">•</span><span>רביולי פסטו</span></li>
+              <li><span class="workshop-dot">•</span><span>סלט קפרזה</span></li>
+              <li><span class="workshop-dot">•</span><span>טירמיסו</span></li>
+            </ul>
+            <div class="workshop-note">
+              ✨ ניתן להוסיף פיצות בטאבון בתוספת תשלום
+            </div>
+            <div class="workshop-footer">
+              <span class="badge-min">מינימום 8 אנשים</span>
+              <a class="btn-whatsapp-small"
+                 href="https://wa.me/972504697257?text=אשמח לפרטים על סדנת איטלקית חלבית"
+                 target="_blank"
+                 rel="noreferrer">
+                <span>הזמן עכשיו</span><span class="icon">↩︎</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- טברנה יוונית חלבית -->
+        <article class="workshop-card">
+          <div class="workshop-image-wrapper">
+            <img class="workshop-image"
+                 src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                 alt="טברנה יוונית חלבית"
+                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1505576391880-b3f9d713dc4f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80';" />
+            <div class="price-badge">329 ₪ לאדם</div>
+          </div>
+          <div class="workshop-body">
+            <h3 class="workshop-title">טברנה יוונית חלבית</h3>
+            <ul class="workshop-list">
+              <li><span class="workshop-dot">•</span><span>מיטב המנות היווניות הקלאסיות</span></li>
+              <li><span class="workshop-dot">•</span><span>סופלקי דג באריסה ולימון כבוש</span></li>
+              <li><span class="workshop-dot">•</span><span>ממרחי סקורדיליה ופווה</span></li>
+              <li><span class="workshop-dot">•</span><span>עלי גפן ממולאים</span></li>
+              <li><span class="workshop-dot">•</span><span>מאפה פילו גבינות ותרד</span></li>
+              <li><span class="workshop-dot">•</span><span>סלט יווני</span></li>
+              <li><span class="workshop-dot">•</span><span>סיגר פיצוחים בסירופ תפוזים</span></li>
+            </ul>
+            <div class="workshop-footer">
+              <span class="badge-min">מינימום 8 אנשים</span>
+              <a class="btn-whatsapp-small"
+                 href="https://wa.me/972504697257?text=אשמח לפרטים על סדנת טברנה יוונית חלבית"
+                 target="_blank"
+                 rel="noreferrer">
+                <span>הזמן עכשיו</span><span class="icon">↩︎</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- איטלקית בשרית -->
+        <article class="workshop-card">
+          <div class="workshop-image-wrapper">
+            <img class="workshop-image"
+                 src="https://images.unsplash.com/photo-1574894709920-11b28e7367e3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                 alt="איטלקית בשרית"
+                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1505576391880-b3f9d713dc4f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80';" />
+            <div class="price-badge">339 ₪ לאדם</div>
+          </div>
+          <div class="workshop-body">
+            <h3 class="workshop-title">איטלקית בשרית</h3>
+            <ul class="workshop-list">
+              <li><span class="workshop-dot">•</span><span>קלאסיקות מהמטבח האיטלקי</span></li>
+              <li><span class="workshop-dot">•</span><span>כדורי ארנצ'יני אווז על קרם פלפלים</span></li>
+              <li><span class="workshop-dot">•</span><span>טאליאטלה רגו בשר</span></li>
+              <li><span class="workshop-dot">•</span><span>לזנייה בשר חצילים ורוטב בשמל (פרווה)</span></li>
+              <li><span class="workshop-dot">•</span><span>אנטי פסטי עשיר</span></li>
+              <li><span class="workshop-dot">•</span><span>סופלה שוקולד וגלידה</span></li>
+            </ul>
+            <div class="workshop-footer">
+              <span class="badge-min">מינימום 8 אנשים</span>
+              <a class="btn-whatsapp-small"
+                 href="https://wa.me/972504697257?text=אשמח לפרטים על סדנת איטלקית בשרית"
+                 target="_blank"
+                 rel="noreferrer">
+                <span>הזמן עכשיו</span><span class="icon">↩︎</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </section>
+
+      <!-- TESTIMONIALS -->
+      <section class="testimonials-section">
+        <h2 class="section-title">מה אומרים עלינו</h2>
+        <div class="testimonials-slider">
+
+          <div class="testimonial-slide active">
+            <span class="testimonial-quote-mark">"</span>
+            <p class="testimonial-text">דרור מעביר את הסדנה בצורה מקצועית, נעימה ומלאת תשוקה לאכול – וזה לגמרי מורגש בכל רגע. אין ספק שנחזור לסדנאות המגוונות של דרור</p>
+            <div class="testimonial-stars">★★★★★</div>
+            <div class="testimonial-author">— לקוחה מרוצה</div>
+          </div>
+
+          <div class="testimonial-slide">
+            <span class="testimonial-quote-mark">"</span>
+            <p class="testimonial-text">דרור שף מעולה, ומעביר סדנאות נהדרות, בשילוב מושלם של בישול מוקפד וטעמים, יחד עם הדרכה ולימוד אפקטיביים. מומלץ!</p>
+            <div class="testimonial-stars">★★★★★</div>
+            <div class="testimonial-author">— יאיר גרוסמן</div>
+          </div>
+
+          <div class="testimonial-slide">
+            <span class="testimonial-quote-mark">"</span>
+            <p class="testimonial-text">הסדנה הייתה מדהימה! ממש מוצלח וכולם היו בטירוף. תודה רבה על הכל!</p>
+            <div class="testimonial-stars">★★★★★</div>
+            <div class="testimonial-author">— אלמוג</div>
+          </div>
+
+          <div class="testimonial-slide">
+            <span class="testimonial-quote-mark">"</span>
+            <p class="testimonial-text">כל הכבוד, מעולה! כולם ממש נהנו והחמיאו. תודה רבה!</p>
+            <div class="testimonial-stars">★★★★★</div>
+            <div class="testimonial-author">— רחל איגרא</div>
+          </div>
+
+          <div class="testimonial-dots">
+            <button class="t-dot active" onclick="goToSlide(0)"></button>
+            <button class="t-dot" onclick="goToSlide(1)"></button>
+            <button class="t-dot" onclick="goToSlide(2)"></button>
+            <button class="t-dot" onclick="goToSlide(3)"></button>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- GENERAL INFO -->
+      <section class="general-section">
+        <h3 class="general-title">בכל סדנה מקבלים:</h3>
+        <div class="general-row">
+          <div class="general-item">
+            <div class="general-check">✓</div>
+            <span>פוקאצ'ה חמה + 3 מטבלים לפתיחה</span>
+          </div>
+          <div class="general-item">
+            <div class="general-check">✓</div>
+            <span>2 בקבוקי יין איכותי</span>
+          </div>
+        </div>
+        <div class="general-bottom">
+          😊 השף מגיע עם עוזר טבח ומשאירים מטבח נקי בסוף!
+        </div>
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <h2 class="footer-title">לפרטים והזמנות</h2>
+
+        <div class="footer-actions">
+          <a class="btn-phone" href="tel:0504697257">
+            <span>📞</span><span dir="ltr">050‑469‑7257</span>
+          </a>
+          <a class="btn-whatsapp-main"
+             href="https://wa.me/972504697257"
+             target="_blank"
+             rel="noreferrer">
+            <span>💬</span><span>שלח הודעה בוואטסאפ</span>
+          </a>
+        </div>
+
+        <div class="footer-social">
+          <a href="https://instagram.com/drorkay" target="_blank" rel="noreferrer">
+            <span>📷</span><span>@drorkay</span>
+          </a>
+          <a href="#" target="_blank" rel="noreferrer">
+            <span>📘</span><span>דרור שף</span>
+          </a>
+        </div>
+
+        <p class="footer-copy">© כל הזכויות שמורות לדרור שף</p>
+      </div>
+    </footer>
+
+  </div>
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.testimonial-slide');
+    const dots   = document.querySelectorAll('.t-dot');
+
+    function goToSlide(n) {
+      slides[currentSlide].classList.remove('active');
+      dots[currentSlide].classList.remove('active');
+      currentSlide = n;
+      slides[currentSlide].classList.add('active');
+      dots[currentSlide].classList.add('active');
+    }
+
+    setInterval(() => {
+      goToSlide((currentSlide + 1) % slides.length);
+    }, 4500);
+  </script>
+</body>
+</html>
