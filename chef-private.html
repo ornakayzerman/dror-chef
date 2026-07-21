@@ -2,8 +2,71 @@
 <html lang="he" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <title>דרור שף - ארוחות שף פרטיות בבית הלקוח</title>
+  <title>דרור שף - ארוחות שף פרטיות בבית הלקוח | בופה לאירועים</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="ארוחות שף פרטיות בבית הלקוח - תפריט אישי, שף וטבח שמגיעים אליכם ומכינים בופה מרשים במטבח שלכם. איטלקי, יווני, דרוזי ואסייתי. שירות בשרון, במרכז ועד חדרה, גדרה וירושלים." />
+  <meta name="keywords" content="דרור שף, ארוחת שף פרטית, שף עד הבית, בופה לאירוע, שף לאירוע פרטי, ארוחת שף לבית" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="דרור שף" />
+  <link rel="canonical" href="https://dror-chef.vercel.app/chef-private.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="he_IL" />
+  <meta property="og:site_name" content="דרור שף" />
+  <meta property="og:url" content="https://dror-chef.vercel.app/chef-private.html" />
+  <meta property="og:title" content="דרור שף - ארוחות שף פרטיות בבית הלקוח" />
+  <meta property="og:description" content="תפריט אישי, שף וטבח עד הבית, בופה מרשים ומטבח נקי בסיום. איטלקי, יווני, דרוזי ואסייתי - החל מ-279 ₪ לאדם." />
+  <meta property="og:image" content="https://dror-chef.vercel.app/logo.png.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="דרור שף - ארוחות שף פרטיות בבית הלקוח" />
+  <meta name="twitter:description" content="תפריט אישי, שף וטבח עד הבית, בופה מרשים ומטבח נקי בסיום." />
+  <meta name="twitter:image" content="https://dror-chef.vercel.app/logo.png.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "דרור שף",
+    "description": "ארוחות שף פרטיות בבית הלקוח - תפריט אישי, שף וטבח עד הבית, בופה מרשים.",
+    "url": "https://dror-chef.vercel.app/chef-private.html",
+    "telephone": "+972504697257",
+    "image": "https://dror-chef.vercel.app/logo.png.png",
+    "priceRange": "₪₪₪",
+    "sameAs": [
+      "https://instagram.com/drorkay"
+    ],
+    "areaServed": [
+      { "@type": "City", "name": "חדרה" },
+      { "@type": "City", "name": "נתניה" },
+      { "@type": "City", "name": "כפר סבא" },
+      { "@type": "City", "name": "רעננה" },
+      { "@type": "City", "name": "הרצליה" },
+      { "@type": "City", "name": "פתח תקווה" },
+      { "@type": "City", "name": "תל אביב" },
+      { "@type": "City", "name": "ראשון לציון" },
+      { "@type": "City", "name": "רחובות" },
+      { "@type": "City", "name": "גדרה" },
+      { "@type": "City", "name": "מודיעין" },
+      { "@type": "City", "name": "ירושלים" }
+    ],
+    "makesOffer": [
+      {
+        "@type": "Offer",
+        "price": "279",
+        "priceCurrency": "ILS",
+        "itemOffered": { "@type": "Service", "name": "ארוחת שף פרטית חלבית" }
+      },
+      {
+        "@type": "Offer",
+        "price": "349",
+        "priceCurrency": "ILS",
+        "itemOffered": { "@type": "Service", "name": "ארוחת שף פרטית בשרית" }
+      }
+    ]
+  }
+  </script>
+
   <style>
     body {
       margin: 0;
@@ -108,6 +171,30 @@
     @keyframes pulse {
       0%, 100% { transform: scale(1); }
       50% { transform: scale(1.03); }
+    }
+
+    .page-nav {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+
+    .page-nav a {
+      display: inline-block;
+      padding: 0.5rem 1.25rem;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #fff;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.4);
+    }
+
+    .page-nav a.active {
+      background: #d97706;
+      border-color: #d97706;
     }
 
     /* MAIN */
@@ -628,6 +715,11 @@
         <div class="hero-badge">
           🍽️ בופה לתפארת — מתוכנן במיוחד עבורכם
         </div>
+
+        <nav class="page-nav">
+          <a href="index.html">🍳 סדנאות בישול</a>
+          <a href="chef-private.html" class="active">🍽️ ארוחות שף פרטיות</a>
+        </nav>
       </div>
     </header>
 
