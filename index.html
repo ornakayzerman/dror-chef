@@ -100,7 +100,7 @@
       position: absolute;
       inset: 0;
       opacity: 0.2;
-      background-image: url("https://images.unsplash.com/photo-1556910103-1c02745a30bf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80");
+      background-image: url("https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80");
       background-size: cover;
       background-position: center;
     }
@@ -265,6 +265,26 @@
       text-decoration-color: #f59e0b;
       text-underline-offset: 0.4rem;
       text-decoration-thickness: 4px;
+    }
+
+    .video-section {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .video-wrapper {
+      max-width: 420px;
+      margin: 0 auto;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(15,23,42,0.08);
+      border-bottom: 4px solid #f59e0b;
+    }
+
+    .video-wrapper video {
+      width: 100%;
+      display: block;
+      background: #000;
     }
 
     .area-text {
@@ -974,6 +994,17 @@
           </div>
         </article>
 
+      </section>
+
+      <!-- VIDEO -->
+      <section class="video-section">
+        <h2 class="section-title">טעימה מהסדנאות שלנו</h2>
+        <div class="video-wrapper">
+          <video controls preload="metadata" playsinline>
+            <source src="טעימות מהסדנאות שלי - דחוס.mp4" type="video/mp4" />
+            הדפדפן שלך לא תומך בהצגת הסרטון.
+          </video>
+        </div>
       </section>
 
       <!-- TESTIMONIALS -->
